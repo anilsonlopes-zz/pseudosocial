@@ -79,7 +79,7 @@ module.exports = {
     }
   },
   router: {
-    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/chatin/' : '/',
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/pseudosocial/' : '/',
     middleware: ['auth']
   }
 }
