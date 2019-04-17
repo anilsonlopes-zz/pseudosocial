@@ -50,6 +50,7 @@ export default {
   },
   methods: {
     openUser(uid) {
+      this.$store.commit('users/styleSidebar', { transform: 'translateX(-1000px)' })
       this.$store.commit('users/opened', uid)
       this.$store.commit('users/talk')
     },

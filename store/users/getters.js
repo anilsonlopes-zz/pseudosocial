@@ -13,5 +13,8 @@ export default {
   },
   talk(state) {
     return state.talk
+  },
+  styleSidebar(state) {
+    return state.styleSidebar
   }
 }

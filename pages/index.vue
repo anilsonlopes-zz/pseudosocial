@@ -1,6 +1,6 @@
 <template>
   <section class="flex min-h-screen">
-    <div class="bg-grey-light text-grey-light w-full max-w-xs min-h-screen z-10 overflow-x-hidden overflow-y-scroll scroll max-h-inner-screen" aria-label="Lista de amigos">
+    <div class="transition fixed bg-grey-light text-grey-light w-full max-w-xs min-h-screen z-20 shadow-lg overflow-x-hidden overflow-y-scroll scroll max-h-inner-screen" :style="styleSidebar" aria-label="Lista de amigos">
       <div class="p-2">
         <c-search-friend />
       </div>
@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   head: {
     title: 'Conversas'
@@ -23,6 +25,11 @@ export default {
     CSearchFriend: () => import('@/components/CSearchFriend'),
     CListFriends: () => import('@/components/CListFriends'),
     CTalk: () => import('@/components/CTalk')
+  },
+  computed: {
+    ...mapGetters({
+      'styleSidebar': 'users/styleSidebar'
+    })
   },
   mounted() {
     this.$store.dispatch('users/friends')

@@ -5,5 +5,6 @@ export default () => ({
   auth: null,
   messages: {},
   talk: [],
-  notifications: []
+  notifications: [],
+  styleSidebar: {}
 })

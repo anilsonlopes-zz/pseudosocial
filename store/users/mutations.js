@@ -37,3 +37,7 @@ export const notification = function (state, notification) {
 export const removeNotification = function (state, id) {
   state.notifications = state.notifications.filter(notification => notification.id !== id)
 }
+
+export const styleSidebar = function (state, style) {
+  state.styleSidebar = style
+}

@@ -1,14 +1,19 @@
 <template>
   <div>
     <div v-if="user" class="flex justify-between items-center">
-      <div class="animated fadeInDown faster flex items-center px-2 py-3 rounded-r select-none no-underline">
-        <c-bg-image class="w-10 h-10 rounded-full" :src="user.photoURL" :label="user.username" />
-        <div class="flex flex-col ml-5">
-          <div class="font-bold text-grey-darker text-sm mb-1" aria-label="Nome do usuário">
-            {{ user.displayName }}
-          </div>
-          <div class="text-xs text-grey-dark" aria-label="Nome legal">
-            @{{ user.username }}
+      <div class="flex">
+        <button type="button" class="flex items-center text-grey-darker px-4 focus:outline-none focus:text-red transition" title="Fechar" @click="close">
+          <i class="fa fa-arrow-circle-left" />
+        </button>
+        <div class="animated fadeInDown faster flex items-center px-2 py-3 rounded-r select-none no-underline">
+          <c-bg-image class="w-10 h-10 rounded-full" :src="user.photoURL" :label="user.username" />
+          <div class="flex flex-col ml-5">
+            <div class="font-bold text-grey-darker text-sm mb-1" aria-label="Nome do usuário">
+              {{ user.displayName }}
+            </div>
+            <div class="text-xs text-grey-dark" aria-label="Nome legal">
+              @{{ user.username }}
+            </div>
           </div>
         </div>
       </div>
@@ -46,10 +51,15 @@ export default {
   },
   methods: {
     logout() {
-      this.$store.dispatch('users/logout').then(() => {
-        this.$store.commit('users/notification', { type: 'info', message: 'Desconectado!? Ver se não esquece a senha.', duration: 5 })
-        this.$router.push('/login')
-      })
+      if (window.confirm('Deseja desconectar?')) {
+        this.$store.dispatch('users/logout').then(() => {
+          this.$store.commit('users/notification', { type: 'info', message: 'Desconectado!? Ver se não esquece a senha.', duration: 5 })
+          this.$router.push('/login')
+        })
+      }
+    },
+    close() {
+      this.$store.commit('users/styleSidebar', { transform: 'translateX(-1000px)' })
     }
   }
 }
