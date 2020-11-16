@@ -1,19 +1,14 @@
 <template>
   <div v-if="user" class="relative min-h-screen">
     <div class="absolute pin-t pin-r pin-l z-10 p-2 shadow flex justify-between items-center bg-grey-dark animated fadeInUp faster" aria-label="Menu da conversa atual">
-      <div class="flex">
-        <button class="text-grey-light text-lg p-2 mr-2 opacity-75 focus:outline-none" @click="openSidebar">
-          <i class="fa fa-bars" />
-        </button>
-        <div class="flex items-center" aria-label="Dados do usuário da conversa">
-          <div class="bg-cover rounded w-10 h-10" :style="{ backgroundImage: `url(${user.photoURL})` }" aria-label="Foto do usuário" />
-          <div class="flex flex-col ml-2">
-            <div class="font-bold text-sm text-white mb-1" aria-label="Nome do usuário">
-              {{ user.displayName || user.username }}
-            </div>
-            <div class="text-xs text-white select-none" aria-label="Nome legal">
-              @{{ user.username }}
-            </div>
+      <div class="flex items-center pl-2" aria-label="Dados do usuário da conversa">
+        <div class="bg-cover rounded w-10 h-10" :style="{ backgroundImage: `url(${user.photoURL})` }" aria-label="Foto do usuário" />
+        <div class="flex flex-col ml-2">
+          <div class="font-bold text-sm text-white mb-1" aria-label="Nome do usuário">
+            {{ user.displayName || user.username }}
+          </div>
+          <div class="text-xs text-white select-none" aria-label="Nome legal">
+            @{{ user.username }}
           </div>
         </div>
       </div>
@@ -56,9 +51,6 @@ export default {
     })
   },
   methods: {
-    openSidebar() {
-      this.$store.commit('users/styleSidebar', { transform: 'translateX(0px)' })
-    },
     messageHandle() {
       if (this.message.trim().length) {
         this.$store.dispatch('users/sendMessage', this.message)

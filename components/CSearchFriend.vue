@@ -2,9 +2,6 @@
   <div>
     <div v-if="user" class="flex justify-between items-center">
       <div class="flex">
-        <button type="button" class="flex items-center text-grey-darker px-4 focus:outline-none focus:text-red transition" title="Fechar" @click="close">
-          <i class="fa fa-bars" />
-        </button>
         <div class="animated fadeInDown faster flex items-center px-2 py-3 rounded-r select-none no-underline">
           <c-bg-image class="w-10 h-10 rounded-full" :src="user.photoURL" :label="user.username" />
           <div class="flex flex-col ml-5">
@@ -57,9 +54,6 @@ export default {
           this.$router.push('/login')
         })
       }
-    },
-    close() {
-      this.$store.commit('users/styleSidebar', { transform: 'translateX(-1000px)' })
     }
   }
 }
