@@ -79,7 +79,7 @@ module.exports = {
     }
   },
   router: {
-    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/pseudosocial/' : '/',
+    base: process.env.NODE_ENV === 'production' ? '/pseudosocial/' : '/',
     middleware: ['auth']
   }
 }
