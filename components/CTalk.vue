@@ -28,7 +28,7 @@
       <div class="py-8 mb-2 flex-1" />
     </div>
     <div class="absolute pin-r pin-b pin-l p-4 z-10">
-      <form class="relative" @submit="messageHandle">
+      <form class="relative" @submit.prevent="messageHandle">
         <input v-model="message" type="text" class="w-full rounded p-4 pr-12 text-sm text-grey-dark shadow transition focus:outline-none" placeholder="Digitar a mensagem...">
         <transition enter-active-class="animated faster fadeIn" leave-active-class="animated faster fadeOut">
           <button v-show="message.length" class="absolute pin-r pin-t w-10 h-10 mt-1 mr-1 p-2 bg-grey-darkest text-xs text-white rounded focus:outline-none">
@@ -60,8 +60,7 @@ export default {
       this.$store.commit('users/styleSidebar', { transform: 'translateX(0px)' })
     },
     messageHandle() {
-      event.preventDefault()
-      if (this.message.length) {
+      if (this.message.trim().length) {
         this.$store.dispatch('users/sendMessage', this.message)
         this.message = ''
       }
