@@ -3,7 +3,7 @@
     <div v-if="user" class="flex justify-between items-center">
       <div class="flex">
         <button type="button" class="flex items-center text-grey-darker px-4 focus:outline-none focus:text-red transition" title="Fechar" @click="close">
-          <i class="fa fa-arrow-circle-left" />
+          <i class="fa fa-bars" />
         </button>
         <div class="animated fadeInDown faster flex items-center px-2 py-3 rounded-r select-none no-underline">
           <c-bg-image class="w-10 h-10 rounded-full" :src="user.photoURL" :label="user.username" />
@@ -18,14 +18,14 @@
         </div>
       </div>
       <button type="button" class="flex items-center text-grey-darker px-4 focus:outline-none focus:text-red transition" title="Desconectar" @click="logout">
-        <i class="fa fa-times" />
+        <i class="fa fa-sign-out" />
       </button>
     </div>
     <div class="relative mt-5">
       <button type="button" class="absolute pin-l pin-t pin-b flex items-center text-black px-4 focus:outline-none focus:text-green transition" title="Buscar">
         <i class="fa fa-search" />
       </button>
-      <input v-model="search" placeholder="Buscar ou iniciar conversa" type="search" class="w-full pl-10 pr-4 py-2 h-10 text-sm text-grey-dark rounded shadow focus:shadow-lg transition focus:outline-none" spellcheck="false">
+      <input v-model="search" placeholder="Encontrar alguém" type="search" class="w-full pl-10 pr-4 py-2 h-10 text-sm text-grey-dark rounded shadow focus:shadow-lg transition focus:outline-none" spellcheck="false">
     </div>
   </div>
 </template>
