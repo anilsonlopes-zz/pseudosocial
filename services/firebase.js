@@ -4,15 +4,15 @@ import 'firebase/firestore'
 import 'firebase/storage'
 
 const config = {
-    apiKey: 'AIzaSyDwS7AauAFYQBZRAYm32aQzSWD-4jVt2-E',
-    authDomain: 'quila-dev.firebaseapp.com',
-    databaseURL: 'https://quila-dev.firebaseio.com',
-    projectId: 'quila-dev',
-    storageBucket: 'quila-dev.appspot.com',
-    messagingSenderId: '898205392296',
-    appId: '1:898205392296:web:70281ae8961e7af09e919d',
-    measurementId: 'G-8273JF0W7V'
-  }
+  apiKey: 'AIzaSyCveoFv3bhN8VuUeMjOSGYvkojHrnlBooA',
+  authDomain: 'pseudosocial-43582.firebaseapp.com',
+  databaseURL: 'https://pseudosocial-43582.firebaseio.com',
+  projectId: 'pseudosocial-43582',
+  storageBucket: 'pseudosocial-43582.appspot.com',
+  messagingSenderId: '1035641499244',
+  appId: '1:1035641499244:web:1be940eee8f1c77ae9b249',
+  measurementId: 'G-LPMDB7YQ5J'
+}
 
 if (firebase.apps.length === 0) {
   firebase.initializeApp(config)

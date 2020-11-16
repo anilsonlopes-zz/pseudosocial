@@ -5,7 +5,7 @@
         <c-search-friend />
       </div>
       <div class="pr-2">
-        <c-list-friends />
+        <c-list-friends :downloading="downloading" />
       </div>
     </div>
     <div class="w-full bg-grey">
@@ -26,13 +26,23 @@ export default {
     CListFriends: () => import('@/components/CListFriends'),
     CTalk: () => import('@/components/CTalk')
   },
+  data: () => ({
+    downloading: false
+  }),
   computed: {
     ...mapGetters({
       'styleSidebar': 'users/styleSidebar'
     })
   },
   mounted() {
-    this.$store.dispatch('users/friends')
+    this.fetchFriends()
+  },
+  methods: {
+    async fetchFriends() {
+      this.downloading = true
+      await this.$store.dispatch('users/friends')
+      this.downloading = false
+    }
   }
 }
 </script>
