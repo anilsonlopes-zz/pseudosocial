@@ -1,6 +1,6 @@
 <template>
   <section class="flex min-h-screen">
-    <div class="transition fixed bg-grey-light text-grey-light w-full max-w-xs min-h-screen z-20 shadow-lg overflow-x-hidden overflow-y-scroll scroll max-h-inner-screen" :style="styleSidebar" aria-label="Lista de amigos">
+    <div class="sidebar transition fixed bg-grey-light text-grey-light w-full max-w-xs min-h-screen z-20 shadow-lg overflow-x-hidden overflow-y-scroll scroll max-h-inner-screen" :style="styleSidebar" aria-label="Lista de amigos">
       <div class="p-2">
         <c-search-friend />
       </div>
@@ -13,6 +13,12 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+.sidebar {
+  box-shadow: 0 0 0 1100px rgba(96, 111, 123, 0.729);
+}
+</style>
 
 <script>
 import { mapGetters } from 'vuex'
